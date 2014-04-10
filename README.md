@@ -37,4 +37,5 @@ Include `client-rekey` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+License:: Apache 2.0 (see: LICENSE)
+Author:: Chef Software, inc.
