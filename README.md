@@ -16,7 +16,7 @@ will travel over the wire. This requires a Chef 11 server.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+This is expected to work on all platforms that chef-client supports.
 
 ## Attributes
 
