@@ -1,8 +1,8 @@
 name             'client-rekey'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
-license          'All rights reserved'
-description      'Installs/Configures client-rekey'
-long_description 'Installs/Configures client-rekey'
+maintainer       'Chef Software, Inc.'
+maintainer_email 'dev@getchef.com'
+license          'Apache 2.0'
+description      'Regenerates your client key'
+long_description 'Regenerates your client key-recommended for users affected by heartbleed'
 version          '0.1.0'
 
