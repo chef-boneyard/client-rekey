@@ -4,13 +4,26 @@ Regenerates a chef-client's API key. You want to use this if you believe
 your client keys could be exposed as a result of the heartbleed
 vulnerability.
 
+By default, this cookbook will cause chef-client to rekey itself every
+24 hours. This can be adjusted with the attribute
+`node['client-rekey']['interval']`, which is the maximum allowed age of
+the client key in seconds.
+
+The library in this cookbook will honor the client configuration setting
+`local_key_generation`. If set to true in the `client.rb` configuration
+file, the private key will be generated locally and only the public key
+will travel over the wire. This requires a Chef 11 server.
+
 ## Supported Platforms
 
 TODO: List your supported platforms.
 
 ## Attributes
 
-None.
+`node['client-rekey']['interval']`: This recipe uses the mtime of your
+client.pem to determine when it was last updated. If the difference
+between now and the file's mtime is greater than this interval setting,
+your client key will be regenerated.
 
 ## Usage
 
