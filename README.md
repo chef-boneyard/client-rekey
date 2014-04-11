@@ -14,6 +14,11 @@ The library in this cookbook will honor the client configuration setting
 file, the private key will be generated locally and only the public key
 will travel over the wire. This requires a Chef 11 server.
 
+## Warning ##
+
+If you use chef-vault or any other code that uses your client's keys,
+you'll need to re-encrypt your data each time you rekey.
+
 ## Supported Platforms
 
 This is expected to work on all platforms that chef-client supports.
