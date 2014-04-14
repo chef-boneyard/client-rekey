@@ -75,7 +75,11 @@ class Chef
       end
 
       def update
-        response = http_api.put("clients/#{name}", put_data)
+        response = if http_api.respond_to?(:put)
+                     http_api.put("clients/#{name}", put_data)
+                   else
+                     http_api.put_rest("clients/#{name}", put_data)
+                   end
         if response.respond_to?(:private_key) # Chef 11
           @server_generated_private_key = response.private_key
         else # Chef 10
