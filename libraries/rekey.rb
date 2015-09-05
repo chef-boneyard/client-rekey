@@ -16,10 +16,8 @@
 # limitations under the License.
 #
 
-
 class Chef
   class ApiClient
-
     # ==Chef::ApiClient::Rekey
     #
     # This code is mostly a straight copy of the code that lives in
@@ -61,8 +59,8 @@ class Chef
       end
 
       def assert_destination_writable!
-        if (File.exists?(destination) && !File.writable?(destination)) or !File.writable?(File.dirname(destination))
-          raise Chef::Exceptions::CannotWritePrivateKey, "I cannot write your private key to #{destination} - check permissions?"
+        if (File.exist?(destination) && !File.writable?(destination)) || !File.writable?(File.dirname(destination))
+          fail Chef::Exceptions::CannotWritePrivateKey, "I cannot write your private key to #{destination} - check permissions?"
         end
       end
 
@@ -83,13 +81,13 @@ class Chef
         if response.respond_to?(:private_key) # Chef 11
           @server_generated_private_key = response.private_key
         else # Chef 10
-          @server_generated_private_key = response["private_key"]
+          @server_generated_private_key = response['private_key']
         end
         response
       end
 
       def put_data
-        base_put_data = { :name => name, :admin => false }
+        base_put_data = { name: name, admin: false }
         if self_generate_keys?
           base_put_data[:public_key] = generated_public_key
         else
@@ -126,7 +124,7 @@ class Chef
       end
 
       def file_flags
-        base_flags = File::CREAT|File::TRUNC|File::RDWR
+        base_flags = File::CREAT | File::TRUNC | File::RDWR
         # Windows doesn't have symlinks, so it doesn't have NOFOLLOW
         base_flags |= File::NOFOLLOW if defined?(File::NOFOLLOW)
         base_flags
@@ -134,4 +132,3 @@ class Chef
     end
   end
 end
-

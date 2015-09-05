@@ -16,4 +16,4 @@
 # limitations under the License.
 #
 
-default["client-rekey"]["interval"] = 3600 * 24
+default['client-rekey']['interval'] = 3600 * 24
