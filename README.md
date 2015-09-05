@@ -1,4 +1,7 @@
-# client-rekey-cookbook
+# client-rekey Cookbook
+
+[![Build Status](https://travis-ci.org/opscode-cookbooks/client-rekey.svg?branch=master)](http://travis-ci.org/opscode-cookbooks/client-rekey)
+[![Cookbook Version](https://img.shields.io/cookbook/v/client-rekey.svg)](https://supermarket.chef.io/cookbooks/client-rekey)
 
 Regenerates a chef-client's API key. You want to use this if you believe
 your client keys could be exposed as a result of the heartbleed
@@ -53,7 +56,20 @@ Include `client-rekey` in your node's `run_list`:
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request
 
-## License and Authors
+## License & Authors
+```text
+Copyright:: 2009-2015, Chef Software, Inc
 
-License:: Apache 2.0 (see: LICENSE)
-Author:: Chef Software, inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
