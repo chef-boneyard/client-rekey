@@ -1,6 +1,6 @@
 # client-rekey Cookbook
 
-[![Build Status](https://travis-ci.org/opscode-cookbooks/client-rekey.svg?branch=master)](http://travis-ci.org/opscode-cookbooks/client-rekey)
+[![Build Status](https://travis-ci.org/chef-cookbooks/client-rekey.svg?branch=master)](http://travis-ci.org/chef-cookbooks/client-rekey)
 [![Cookbook Version](https://img.shields.io/cookbook/v/client-rekey.svg)](https://supermarket.chef.io/cookbooks/client-rekey)
 
 Regenerates a chef-client's API key. You want to use this if you believe
@@ -72,4 +72,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
