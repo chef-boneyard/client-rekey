@@ -60,7 +60,7 @@ class Chef
 
       def assert_destination_writable!
         if (File.exist?(destination) && !File.writable?(destination)) || !File.writable?(File.dirname(destination))
-          fail Chef::Exceptions::CannotWritePrivateKey, "I cannot write your private key to #{destination} - check permissions?"
+          raise Chef::Exceptions::CannotWritePrivateKey, "I cannot write your private key to #{destination} - check permissions?"
         end
       end
 
@@ -78,11 +78,11 @@ class Chef
                    else
                      http_api.put_rest("clients/#{name}", put_data)
                    end
-        if response.respond_to?(:private_key) # Chef 11
-          @server_generated_private_key = response.private_key
-        else # Chef 10
-          @server_generated_private_key = response['private_key']
-        end
+        @server_generated_private_key = if response.respond_to?(:private_key) # Chef 11
+                                          response.private_key
+                                        else # Chef 10
+                                          response['private_key']
+                                        end
         response
       end
 
