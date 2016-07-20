@@ -97,7 +97,16 @@ class Chef
       end
 
       def http_api
-        @http_api ||= Chef::REST.new(Chef::Config[:chef_server_url])
+        if Gem::Version.new(Chef::VERSION) < Gem::Version.new('12.7.0')
+          @http_api ||= Chef::REST::RestRequest.new(Chef::Config[:chef_server_url])
+        else
+          @http_api ||= Chef::ServerAPI.new(
+            Chef::Config[:chef_server_url],
+            api_version: '0',
+            client_name: Chef::Config[:client_name],
+            signing_key_filename: Chef::Config[:client_key]
+          )
+        end
       end
 
       # Whether or not to generate keys locally and post the public key to the
