@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@chef.io'
 license 'Apache-2.0'
 description 'Regenerates your client key'
 long_description 'Regenerates your client key-recommended for users affected by heartbleed'
-version '0.2.0'
+version '0.3.0'
 
 %w(aix amazon centos debian opensuse opensuseleap oracle redhat scientific suse ubuntu).each do |os|
   supports os
