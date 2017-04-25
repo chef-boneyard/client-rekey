@@ -105,7 +105,7 @@ class Chef
         # if running_version < dep_version
         #  @http_api ||= Chef::REST::RestRequest.new(Chef::Config[:chef_server_url])
         @http_api = if Gem::Version.new(Chef::VERSION) < Gem::Version.new('12.7.0')
-                      Chef::REST::RestRequest.new(Chef::Config[:chef_server_url])
+                      Chef::REST::RestRequest.new(Chef::Config[:chef_server_url]) # ~FC084
                     else
                       @http_api ||= Chef::ServerAPI.new(
                         Chef::Config[:chef_server_url],
